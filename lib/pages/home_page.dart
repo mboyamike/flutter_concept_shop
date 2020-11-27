@@ -86,7 +86,6 @@ class MyHomePage extends StatelessWidget {
               onPressed: () {
                 Get.to(DetailPage(), arguments: {
                   "product": products[index],
-                  "tag": tag,
                 });
               },
               child: ProductTile(product: products[index]),
