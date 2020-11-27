@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:flutter_concept_shop/widgets/product_tile.dart';
 import 'package:flutter_concept_shop/models/product.dart';
 import 'package:flutter_concept_shop/constants.dart';
+import 'detail_page.dart';
 
 class MyHomePage extends StatelessWidget {
   final List<Product> products = [
     Product(
+      description: sampleDescription,
       name: "Nike",
       id: "Nike-Purple",
       imagePath: "assets/images/Purple Nike Shoes.png",
@@ -13,6 +16,7 @@ class MyHomePage extends StatelessWidget {
       price: 4800,
     ),
     Product(
+      description: sampleDescription,
       name: "Asics Running Shoes",
       id: "Asics",
       imagePath: "assets/images/Grey Asics Shoes.png",
@@ -20,6 +24,7 @@ class MyHomePage extends StatelessWidget {
       price: 5000,
     ),
     Product(
+      description: sampleDescription,
       name: "Nike 2",
       id: "Nike-Purple",
       imagePath: "assets/images/Nike Shoes.png",
@@ -27,6 +32,7 @@ class MyHomePage extends StatelessWidget {
       price: 6000,
     ),
     Product(
+      description: sampleDescription,
       name: "Adidas",
       id: "Adidas",
       imagePath: "assets/images/Red Adidas.png",
@@ -68,18 +74,22 @@ class MyHomePage extends StatelessWidget {
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: defaultPadding / 2,
-            mainAxisSpacing: defaultPadding / 2,
-            childAspectRatio: 0.85,
+            mainAxisSpacing: defaultPadding,
+            childAspectRatio: 0.8,
           ),
           itemBuilder: (context, index) {
+            String tag = "shoe-$index";
+
             return FlatButton(
               padding: EdgeInsets.zero,
               splashColor: products[index].color.withOpacity(0.4),
-              onPressed: () {},
-              child: Hero(
-                child: ProductTile(product: products[index]),
-                tag: "shoe",
-              ),
+              onPressed: () {
+                Get.to(DetailPage(), arguments: {
+                  "product": products[index],
+                  "tag": tag,
+                });
+              },
+              child: ProductTile(product: products[index]),
             );
           },
         ),

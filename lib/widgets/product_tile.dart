@@ -30,12 +30,15 @@ class ProductTile extends StatelessWidget {
               Radius.circular(16),
             ),
           ),
-          width: 170,
-          height: 160,
+          width: 160,
+          height: 150,
           padding: EdgeInsets.all(25),
-          child: Center(
-            child: Image.asset(
-              product.imagePath,
+          child: Hero(
+            tag: product.name,
+            child: Center(
+              child: Image.asset(
+                product.imagePath,
+              ),
             ),
           ),
         ),
