@@ -17,14 +17,21 @@ class MyHomePage extends StatelessWidget {
       id: "Asics",
       imagePath: "assets/images/Grey Asics Shoes.png",
       color: Colors.grey,
-      price: 4800,
+      price: 5000,
     ),
     Product(
-      name: "Nike",
+      name: "Nike 2",
       id: "Nike-Purple",
-      imagePath: "assets/images/Purple Nike Shoes.png",
-      color: Colors.purple,
-      price: 4800,
+      imagePath: "assets/images/Nike Shoes.png",
+      color: Colors.white,
+      price: 6000,
+    ),
+    Product(
+      name: "Adidas",
+      id: "Adidas",
+      imagePath: "assets/images/Red Adidas.png",
+      color: Colors.red,
+      price: 2500,
     ),
   ];
 
@@ -65,7 +72,15 @@ class MyHomePage extends StatelessWidget {
             childAspectRatio: 0.85,
           ),
           itemBuilder: (context, index) {
-            return ProductTile(product: products[index]);
+            return FlatButton(
+              padding: EdgeInsets.zero,
+              splashColor: products[index].color.withOpacity(0.4),
+              onPressed: () {},
+              child: Hero(
+                child: ProductTile(product: products[index]),
+                tag: "shoe",
+              ),
+            );
           },
         ),
       ),
