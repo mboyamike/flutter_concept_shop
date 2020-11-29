@@ -4,7 +4,7 @@ class Product {
   String id = "product ID";
   String name = "product Name";
   String description = "product Description";
-  double price = 7750;
+  double price;
   Color color = Colors.white;
   String imagePath;
 
@@ -12,7 +12,7 @@ class Product {
     this.id,
     this.name,
     this.description,
-    this.price,
+    this.price = 7750,
     this.color = Colors.white,
     @ required this.imagePath,
   });
